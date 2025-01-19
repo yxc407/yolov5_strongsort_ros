@@ -1,0 +1,3 @@
+[submodule "scripts/boxmot"]
+	path = scripts/boxmot
+	url = https://github.com/yxc407/boxmot.git
