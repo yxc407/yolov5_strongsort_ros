@@ -1,0 +1,43 @@
+<launch>
+    <arg name="yolo_weights" default="$(find yolov5_strongsort_ros)/scripts/boxmot/yolov5/weights/yolov5s_PersonOnly.pt" />
+    <arg name="strong_sort_weights" default="$(find yolov5_strongsort_ros)/scripts/boxmot/weights/osnet_x0_25_msmt17.pt" />
+    <arg name="config" default="$(find yolov5_strongsort_ros)/scripts/boxmot/strong_sort/configs/strong_sort.yaml" />
+    <arg name="confidence_threshold" default="0.4" />
+    <arg name="iou_threshold" default="0.3" />
+    <arg name="maximum_detections" default="20" />
+    <arg name="device" default="0" />
+    <arg name="half" default="false" />
+
+    <arg name="inference_size_h" default="320" />
+    <arg name="inference_size_w" default="320" />
+
+    <arg name="view_image" default="false" />
+
+    <arg name="input_image_topic" default="/siyi_a8_mini/image_raw" />
+    <arg name="output_topic" default="/tracker/tracked_objects" />
+    <arg name="output_image_topic" default="/tracker/image_out" />
+    <arg name="publish_image" default="true" />
+
+
+    <node pkg="yolov5_strongsort_ros" name="tracker" type="tracker.py" output="screen">
+        <param name="yolo_weights" value="$(arg yolo_weights)" />
+        <param name="strong_sort_weights" value="$(arg strong_sort_weights)" />
+        <param name="config" value="$(arg config)" />
+        <param name="confidence_threshold" value="$(arg confidence_threshold)" />
+        <param name="iou_threshold" value="$(arg iou_threshold)" />
+        <param name="maximum_detections" value="$(arg maximum_detections)" />
+        <param name="device" value="$(arg device)" />
+        <param name="half" value="$(arg half)" />
+
+        <param name="inference_size_h" value="$(arg inference_size_h)" />
+        <param name="inference_size_w" value="$(arg inference_size_w)" />
+
+        <param name="view_image" value="$(arg view_image)" />
+
+        <param name="input_image_topic" value="$(arg input_image_topic)" />
+        <param name="output_topic" value="$(arg output_topic)" />
+
+        <param name="output_image_topic" value="$(arg output_image_topic)" />
+        <param name="publish_image" value="$(arg publish_image)" />
+    </node>
+</launch>

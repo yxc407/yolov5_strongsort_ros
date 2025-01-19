@@ -1,0 +1,49 @@
+<launch>
+    <arg name="weights" default="$(find yolov5_strongsort_ros)/scripts/boxmot/yolov5/weights/yolov5s_PersonOnly.pt" />
+    <arg name="data" default="$(find yolov5_strongsort_ros)/scripts/boxmot/yolov5/data/coco_PersonOnly.yaml" />
+    <arg name="confidence_threshold" default="0.75" />
+    <arg name="iou_threshold" default="0.45" />
+    <arg name="maximum_detections" default="1000" />
+    <arg name="device" default="0" />
+    <arg name="agnostic_nms" default="true" />
+    <arg name="line_thickness" default="3" />
+    <arg name="dnn" default="true" />
+    <arg name="half" default="false" />
+
+    <arg name="inference_size_h" default="320" />
+    <arg name="inference_size_w" default="320" />
+
+    <arg name="view_image" default="false" />
+
+    <arg name="input_image_topic" default="/siyi_a8_mini/image_raw" />
+    <arg name="output_topic" default="/yolov5/detections" />
+
+    <arg name="publish_image" default="true" />
+    <arg name="output_image_topic" default="/yolov5/image_out" />
+
+
+    <node pkg="yolov5_strongsort_ros" name="detector" type="detector.py" output="screen">
+        <param name="weights" value="$(arg weights)" />
+        <param name="data" value="$(arg data)" />
+        <param name="confidence_threshold" value="$(arg confidence_threshold)" />
+        <param name="iou_threshold" value="$(arg iou_threshold)" />
+        <param name="maximum_detections" value="$(arg maximum_detections)" />
+        <param name="device" value="$(arg device)" />
+        <param name="agnostic_nms" value="$(arg agnostic_nms)" />
+        <param name="line_thickness" value="$(arg line_thickness)" />
+        <param name="dnn" value="$(arg dnn)" />
+        <param name="half" value="$(arg half)" />
+
+        <param name="inference_size_h" value="$(arg inference_size_h)" />
+        <param name="inference_size_w" value="$(arg inference_size_w)" />
+
+        <param name="view_image" value="$(arg view_image)" />
+
+        <param name="input_image_topic" value="$(arg input_image_topic)" />
+        <param name="output_topic" value="$(arg output_topic)" />
+
+        <param name="publish_image" value="$(arg publish_image)" />
+        <param name="output_image_topic" value="$(arg output_image_topic)" />
+    </node>
+
+</launch>
