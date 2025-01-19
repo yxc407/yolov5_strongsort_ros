@@ -11,23 +11,27 @@ This ROS package provides a real-time object detection and multi-object tracking
 
 ## Installation and Building
 1. Create or switch to your ROS workspace (e.g., ~/catkin_ws/, ~/ros_ws/, etc.):
-```
-cd <ros_workspace>/src
-```
+    
+    ```
+    cd <ros_workspace>/src
+    ```
 2. Clone this repository (and submodules if needed):
-```
-git clone --recurse-submodules https://github.com/yxc407/yolov5-strongsort-ros.git
-```
+    
+    ```
+    git clone --recurse-submodules https://github.com/yxc407/yolov5_strongsort_ros.git
+    ```
 3. Install dependencies
-```
-cd src/yolov5_strongsort_ros/scripts/boxmot
-pip install -r requirements.txt
-```
+
+    ```
+    cd src/yolov5_strongsort_ros/scripts/boxmot
+    pip install -r requirements.txt
+    ```
 4. Build the ROS package
-```
-cd <ros_workspace>
-catkin_make -DCATKIN_WHITELIST="yolov5_strongsort_ros"
-```
+    
+    ```
+    cd <ros_workspace>
+    catkin_make -DCATKIN_WHITELIST="yolov5_strongsort_ros"
+    ```
 
 ## Basic usage
 This package provides two main ROS launch files:
