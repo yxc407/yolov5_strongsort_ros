@@ -134,6 +134,13 @@ This package provides two main ROS launch files:
     ```
     Ensure that the paths correctly point to the newly trained weights and dataset configuration.
 
+## Troubleshooting
+1. No module named 'torchreid'
+    ```bash
+    pip install https://github.com/KaiyangZhou/deep-person-reid/archive/master.zip
+    ```
+    See: https://github.com/phil-bergmann/tracking_wo_bnw/issues/159
+
 ## References
 
 Special thanks to the developers of the following packages:
